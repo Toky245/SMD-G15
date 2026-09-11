@@ -1,0 +1,6 @@
+Sale_ID,Date,Customer_ID,Age,Gender,Location,Join_Date,Product_ID,Product_Name,Category,Brand,Price,Quantity,Sale_Price,Channel
+1,2023-01-15,2001,28,Female,New York,2022-05-10,101,T-shirt,Clothing,Brand A,25.0,2,50.0,Online
+2,2023-01-16,2002,35,Male,Los Angeles,2022-06-15,102,Jeans,Clothing,Brand B,75.0,1,75.0,In-Store
+3,2023-01-17,2001,28,Female,New York,2022-05-10,103,Sneakers,Footwear,Brand C,30.0,3,90.0,Online
+4,2023-01-18,2003,22,Male,Chicago,2022-07-20,104,Jacket,Outerwear,Brand D,120.0,1,120.0,In-Store
+5,2023-01-19,2004,30,Female,Houston,2022-08-25,105,Hat,Accessories,Brand E,22.5,2,45.0,Online
