@@ -1,0 +1,6 @@
+Customer_ID,Age,Gender,Location,Join_Date,Anciennete_Jours,Total_Spent,Nb_Achats,Montant_Total,Panier_Moyen,Premier_Achat,Dernier_Achat,Recence_Jours,Part_Clothing,Part_Footwear,Part_Outerwear,Part_Accessories,Canal_Prefere,Part_Online
+2001,28,Female,New York,2022-05-10,254,500.0,2,140.0,70.0,2023-01-15,2023-01-17,2,35.71,64.29,0.0,0.0,Online,100.0
+2002,35,Male,Los Angeles,2022-06-15,218,750.0,1,75.0,75.0,2023-01-16,2023-01-16,3,100.0,0.0,0.0,0.0,In-Store,0.0
+2003,22,Male,Chicago,2022-07-20,183,300.0,1,120.0,120.0,2023-01-18,2023-01-18,1,0.0,0.0,100.0,0.0,In-Store,0.0
+2004,30,Female,Houston,2022-08-25,147,600.0,1,45.0,45.0,2023-01-19,2023-01-19,0,0.0,0.0,0.0,100.0,Online,100.0
+2005,27,Female,Phoenix,2022-09-30,111,450.0,0,0.0,0.0,,,,0.0,0.0,0.0,0.0,,0.0

@@ -8,7 +8,8 @@ Applique les règles de docs/regles_donnees.md et produit dans data/processed/ :
 
 Utilisation (depuis la racine du dépôt) :
     python src/nettoyage.py
-    python src/nettoyage.py --source data/generated   (plus tard, pour le jeu étendu)
+    python src/nettoyage.py --dest data/processed/original   (5 lignes du prof)
+    python src/nettoyage.py --source data/generated          (jeu étendu -> data/processed)
 """
 
 import argparse
@@ -169,7 +170,8 @@ def main():
     clients_a, date_ref = construire_clients_agreges(ventes_f, clients)
 
     sans_achat = clients_a.loc[clients_a["Nb_Achats"] == 0, "Customer_ID"].tolist()
-    print("\n--- Règle 3 : clients sans achat :", sans_achat or "aucun")
+    apercu = sans_achat if len(sans_achat) <= 10 else sans_achat[:10] + ["..."]
+    print(f"\n--- Règle 3 : clients sans achat : {len(sans_achat)}", apercu if sans_achat else "")
 
     ventes_f.to_csv(dest / "ventes_fusionnees.csv", index=False)
     clients_a.to_csv(dest / "clients_agreges.csv", index=False)

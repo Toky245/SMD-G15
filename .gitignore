@@ -7,3 +7,4 @@ venv/
 .DS_Store
 Thumbs.db
 ~$*
+data/generated/profils_caches.csv
