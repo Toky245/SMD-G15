@@ -1,0 +1,27 @@
+[tool.ruff]
+# Configuration minimale pour le dashboard M8.
+line-length = 100
+target-version = "py311"
+extend-exclude = [".venv", "notebooks", "data"]
+
+[tool.ruff.lint]
+# E/W (pycodestyle), F (pyflakes), I (isort), UP (pyupgrade),
+# B (bugbear), D (docstrings), ANN (annotations de type).
+select = ["E", "W", "F", "I", "UP", "B", "D", "ANN"]
+ignore = [
+    "D203",  # incompatible avec D211
+    "D213",  # incompatible avec D212
+    "ANN401",  # autorise Any ponctuel
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["D104"]
+# app.py insère dashboard/ dans sys.path avant d'importer les paquets locaux :
+# l'ordre des imports et le placement après code sont volontaires.
+"**/app.py" = ["E402", "I001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-first-party = ["core", "data", "components"]
