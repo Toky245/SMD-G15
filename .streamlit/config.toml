@@ -1,0 +1,17 @@
+# Thème du dashboard M8, cohérent avec les tokens de dashboard/core/theme.py.
+# La police Inter est chargée via CSS (dashboard/core/theme.py), Streamlit 1.63
+# n'exposant pas de famille de police personnalisée dans ce fichier.
+
+[theme]
+base = "light"
+primaryColor = "#6F3BFD"
+backgroundColor = "#F8FAFC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#0F172A"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
