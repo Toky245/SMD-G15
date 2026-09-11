@@ -17,6 +17,8 @@ Les fichiers originaux sont dans `data/raw/` et ne doivent jamais être modifié
 
 ## 2. Règles de nettoyage
 
+Ces règles sont appliquées automatiquement par `src/nettoyage.py`.
+
 1. **Sale_Price** = prix total de la vente (`Price × Quantity`). La vente 3 est corrigée : 3 Sneakers × 30 = 90 (et non 30).
 2. **Total_Spent** = dépenses historiques du client depuis son inscription. Cette colonne ne correspond pas aux ventes du fichier (Alice : 500 contre 140 dans les ventes). Les montants réels calculés à partir des ventes sont dans une colonne séparée : `Montant_Total`.
 3. **Client sans achat** : Eva (client 2005) est conservée et marquée comme client sans achat (`Nb_Achats = 0`).
@@ -63,18 +65,20 @@ Les fichiers originaux sont dans `data/raw/` et ne doivent jamais être modifié
 | Premier_Achat | Date du premier achat |
 | Dernier_Achat | Date du dernier achat |
 | Recence_Jours | Jours depuis le dernier achat, par rapport à la dernière date du jeu de données (récence du RFM) |
-| Part_Clothing | Part des achats en Clothing (%) |
-| Part_Footwear | Part des achats en Footwear (%) |
-| Part_Outerwear | Part des achats en Outerwear (%) |
-| Part_Accessories | Part des achats en Accessories (%) |
-| Canal_Prefere | Canal le plus utilisé (Online ou In-Store) |
-| Part_Online | Part des achats faits en ligne (%) |
+| Part_Clothing | Part du montant dépensé en Clothing (%) |
+| Part_Footwear | Part du montant dépensé en Footwear (%) |
+| Part_Outerwear | Part du montant dépensé en Outerwear (%) |
+| Part_Accessories | Part du montant dépensé en Accessories (%) |
+| Canal_Prefere | Canal le plus utilisé, en nombre d'achats (Online ou In-Store) |
+| Part_Online | Part des achats faits en ligne, en nombre d'achats (%) |
 
-Pour un client sans achat, les colonnes d'achats valent 0 ou sont vides (dates).
+Les colonnes `Part_` des catégories sont calculées sur le **montant dépensé**, pas sur le nombre d'achats. Exemple : Alice a dépensé 50 en Clothing et 90 en Footwear, donc Part_Clothing = 35,71 % et Part_Footwear = 64,29 %.
+
+Pour un client sans achat, les colonnes d'achats valent 0, et les dates ainsi que Recence_Jours sont vides.
 
 ### 3.3 `marketing_nettoye.csv`
 
-Même colonnes que `marketing_data.csv`, avec les dates converties au format `AAAA-MM-JJ`.
+Mêmes colonnes que `marketing_data.csv`, avec les dates converties au format `AAAA-MM-JJ`.
 
 ## 4. Jeu de données étendu
 
