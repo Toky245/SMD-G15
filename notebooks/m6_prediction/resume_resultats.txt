@@ -1,0 +1,24 @@
+MÉTHODE : validation temporelle (coupure au 2024-09-30)
+Population d'entraînement : 709 clients ayant acheté avant la coupure
+Taux de churn (fenêtre future) : 47.7 %
+
+Comparaison des modèles (jeu de test) :
+                       Accuracy     F1    AUC
+Régression logistique     0.728  0.674  0.810
+Random Forest             0.746  0.707  0.824
+XGBoost                   0.732  0.708  0.794
+
+Modèle retenu : XGBoost
+
+Importance des variables :
+Recence_Jours    0.363
+Part_Online      0.181
+Montant_Total    0.166
+Nb_Achats        0.149
+Age              0.141
+
+--- LIVRABLE (toutes les ventes jusqu'au 31/12/2024) ---
+Population : 726 clients avec historique d'achat
+Taux de churn actuel prédit : 46.8 %
+CLV moyenne non à risque : 1093.66
+CLV moyenne à risque : 461.24
