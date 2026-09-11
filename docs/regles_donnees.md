@@ -4,6 +4,16 @@ Responsable : Toky
 
 Ce document fixe les règles de nettoyage appliquées aux données du professeur et décrit les fichiers livrés dans `data/processed/`. Tout le monde s'y réfère avant d'écrire son code. Toute demande de modification (nouvelle colonne, autre règle) passe par Toky.
 
+## Organisation des fichiers
+
+```
+data/raw/        -> src/generation.py -> data/generated/          (jeu étendu, même format que raw)
+data/generated/  -> src/nettoyage.py  -> data/processed/          (fichiers utilisés par tout le groupe)
+data/raw/        -> src/nettoyage.py  -> data/processed/original/ (version 5 lignes, pour le rapport)
+```
+
+Personne ne modifie `data/raw/`, `data/generated/` ou `data/processed/` à la main. Si une règle change, on modifie le script et on le relance.
+
 ## 1. Données sources
 
 Les fichiers originaux sont dans `data/raw/` et ne doivent jamais être modifiés.
@@ -27,6 +37,8 @@ Ces règles sont appliquées automatiquement par `src/nettoyage.py`.
 6. **Colonne Name** : exclue des fichiers d'analyse, car elle n'apporte rien à la segmentation ni à la prédiction.
 
 ## 3. Fichiers livrés dans `data/processed/`
+
+Les fichiers de `data/processed/` sont construits à partir du jeu étendu (section 4). Les mêmes fichiers, construits à partir des 5 lignes du professeur, sont dans `data/processed/original/`. Les colonnes sont identiques dans les deux cas.
 
 ### 3.1 `ventes_fusionnees.csv` (une ligne par vente)
 
@@ -82,11 +94,50 @@ Mêmes colonnes que `marketing_data.csv`, avec les dates converties au format `A
 
 ## 4. Jeu de données étendu
 
-Les 5 lignes d'origine ne suffisent pas pour le K-means et les modèles de prédiction. Un jeu étendu sera généré avec **exactement les mêmes colonnes** :
+### 4.1 Pourquoi un jeu étendu
 
-- 500 à 1000 clients et plusieurs milliers de ventes ;
-- ventes réparties sur 1 à 2 ans, pour permettre le calcul du churn ;
-- profils de clients volontairement différents, pour que la segmentation ait du sens ;
-- une partie des clients qui arrêtent d'acheter.
+Les 5 lignes d'origine ne suffisent pas pour le K-means (M3) ni pour entraîner et tester un modèle de prédiction (M6). Un jeu étendu a donc été généré par `src/generation.py`, avec **exactement les mêmes colonnes** que les fichiers du professeur. Le code écrit sur la version 5 lignes fonctionne sans modification sur le jeu étendu.
 
-La méthode de génération sera décrite dans ce fichier une fois le jeu produit. Le code écrit sur la version 5 lignes fonctionnera sans modification sur le jeu étendu.
+### 4.2 Contenu
+
+| Fichier | Lignes | Détail |
+|---|---|---|
+| customers_data.csv | 805 | les 5 clients d'origine + 800 clients générés |
+| products_data.csv | 20 | les 5 produits d'origine + 15 produits (mêmes 4 catégories, marques A à E) |
+| sales_data.csv | 5 337 | les 5 ventes d'origine + ventes générées, du 2023-01-01 au 2024-12-31 |
+| marketing_data.csv | 50 | les 5 campagnes d'origine + 9 campagnes par canal (Online, In-Store, Social, Email, TV) |
+
+Les lignes d'origine sont conservées telles quelles, y compris l'erreur de la vente 3, qui est corrigée ensuite par `nettoyage.py` comme pour les données brutes.
+
+### 4.3 Méthode de génération
+
+1. **Clients** : chaque client généré se voit attribuer un profil de comportement, qui détermine son âge, son canal d'achat habituel (en ligne ou en magasin), sa fréquence d'achat, sa gamme de prix, ses catégories préférées et sa probabilité d'arrêter d'acheter. Le genre et la ville sont tirés au hasard. Les dates d'inscription vont de 2021 à mi-2024.
+2. **Ventes** : pour chaque client, les achats sont tirés jour par jour entre son inscription (ou le 1er janvier 2023) et la fin de la période, selon sa fréquence d'achat. Une variation individuelle est ajoutée pour que deux clients du même profil ne soient pas identiques.
+3. **Saisonnalité** : la fréquence d'achat varie selon le mois, avec un creux en février et un pic en novembre-décembre.
+4. **Produits achetés** : chaque achat choisit un produit selon les catégories et la gamme de prix préférées du client. La quantité est le plus souvent de 1 ou 2. `Sale_Price = Price × Quantity`.
+5. **Churn** : une partie des clients arrête d'acheter à une date aléatoire pendant la période, avec un taux qui varie selon le profil. Certains clients inscrits n'achètent jamais (ils sont traités comme Eva, règle 3).
+6. **Total_Spent** : cumul historique = montant des ventes générées + une estimation des achats faits avant 2023, proportionnelle à l'ancienneté du client.
+7. **Campagnes** : chaque canal a ses propres caractéristiques (budget, impressions, taux de clic, taux de conversion), avec une variation aléatoire d'une campagne à l'autre. Les contrôles restent respectés : clics inférieurs aux impressions, conversions inférieures aux clics.
+8. **Reproductibilité** : la graine aléatoire est fixe (15). Relancer `python src/generation.py` redonne exactement les mêmes données.
+
+Le nombre de profils et leurs caractéristiques ne sont volontairement pas indiqués ici : la segmentation (M3) doit retrouver les groupes à partir des données, sans les connaître à l'avance. Ils seront présentés dans le rapport, pour comparer les segments trouvés aux profils réels.
+
+### 4.4 Valeurs de référence
+
+| Indicateur | Données d'origine | Jeu étendu |
+|---|---|---|
+| Date de référence (dernière vente) | 2023-01-19 | 2024-12-31 |
+| Panier moyen des ventes (ROI de M5) | 76,00 | 90,81 |
+| Clients sans achat | 1 | 79 |
+
+### 4.5 Limites à mentionner dans le rapport
+
+Les données générées sont synthétiques : les tendances qu'on y trouve reflètent les hypothèses de génération, pas le comportement de vrais clients. Le jeu étendu sert à démontrer la méthode (segmentation, prédiction, stratégie) ; les conclusions doivent être présentées comme valables sous ces hypothèses.
+
+### 4.6 Commandes
+
+```bash
+python src/nettoyage.py --dest data/processed/original
+python src/generation.py
+python src/nettoyage.py --source data/generated
+```
