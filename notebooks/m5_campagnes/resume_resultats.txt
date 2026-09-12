@@ -1,0 +1,24 @@
+M5 - PERFORMANCE DES CAMPAGNES (50 campagnes)
+
+Hypothèse de revenu : Revenu = Conversions x panier moyen des ventes
+Panier moyen utilisé : 90.81
+
+Performance par canal (classement par ROI) :
+          Campagnes   Budget  Conversions   CTR  Taux_Conversion   CPC    CPA  Revenu_Estime     ROI
+Channel                                                                                             
+Email            10   6520.0          760  5.89             4.98  0.43   8.58       69015.60  958.52
+Online           10  16170.0         1697  3.50             6.57  0.63   9.53      154104.57  853.03
+TV               10  39210.0         3626  5.13             8.29  0.90  10.81      329277.06  739.78
+Social           10  26750.0         2202  3.15            10.47  1.27  12.15      199963.62  647.53
+In-Store         10  21540.0         1345  1.80            18.14  2.91  16.01      122139.45  467.04
+
+Canal le plus rentable : Email (ROI 959 %)
+Canal le moins rentable : In-Store (ROI 467 %)
+
+Top 5 des campagnes par ROI :
+ Campaign_ID Channel  Budget  Conversions  CPA     ROI
+          26   Email   600.0          130 4.62 1867.55
+          17      TV  4780.0          796 6.01 1412.23
+          40   Email   520.0           84 6.19 1366.93
+          49   Email   520.0           81 6.42 1314.54
+          35   Email   990.0          154 6.43 1312.60
