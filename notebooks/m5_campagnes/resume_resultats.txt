@@ -1,9 +1,46 @@
-M5 - PERFORMANCE DES CAMPAGNES (50 campagnes)
+==============================================================================
+M5 - PERFORMANCE DES CAMPAGNES MARKETING
+Responsable : Manassé
+==============================================================================
 
-Hypothèse de revenu : Revenu = Conversions x panier moyen des ventes
-Panier moyen utilisé : 90.81
+Ce fichier est généré automatiquement par notebooks/m5_campagnes/kpis_campagnes.py.
+Il contient les chiffres et les conclusions à reprendre dans le rapport et les slides.
 
-Performance par canal (classement par ROI) :
+------------------------------------------------------------------------------
+1. PERIMETRE ET METHODE
+------------------------------------------------------------------------------
+
+Campagnes analysées : 50, réparties sur 5 canaux (Email, In-Store, Online, Social, TV), 10 campagnes par canal.
+Période : du 2023-01-01 au 2024-12-11.
+
+Indicateurs calculés pour chaque campagne :
+  CTR             = Clics / Impressions        part des affichages qui donnent un clic
+  Taux_Conversion = Conversions / Clics        part des clics qui donnent un achat
+  CPC             = Budget / Clics             coût moyen d'un clic
+  CPA             = Budget / Conversions       coût moyen d'une vente obtenue
+  ROI             = (Revenu - Budget) / Budget rentabilité, en % du budget investi
+
+HYPOTHESE IMPORTANTE A CITER DANS LE RAPPORT
+Le fichier marketing ne contient pas le chiffre d'affaires généré par les campagnes :
+le ROI n'est donc pas calculable directement. Le revenu est estimé ainsi :
+
+    Revenu = Conversions x panier moyen des ventes = Conversions x 90.81
+
+Le panier moyen est calculé à partir de data/processed/ventes_fusionnees.csv, et non
+saisi en dur, pour rester cohérent si les données changent.
+
+Limite : cette hypothèse suppose que chaque conversion vaut un panier moyen, et que
+toutes les ventes se valent quel que soit le canal. Les ROI obtenus sont donc des
+ordres de grandeur comparables entre canaux, pas des montants exacts.
+
+Limite complémentaire : les ventes ne se font que sur Online et In-Store, alors que les
+campagnes couvrent aussi Social, Email et TV. Aucun lien direct entre une campagne et une
+vente n'est donc possible ; l'analyse compare les canaux entre eux, sans attribution.
+
+------------------------------------------------------------------------------
+2. RESULTATS PAR CANAL (classement par ROI)
+------------------------------------------------------------------------------
+
           Campagnes   Budget  Conversions   CTR  Taux_Conversion   CPC    CPA  Revenu_Estime     ROI
 Channel                                                                                             
 Email            10   6520.0          760  5.89             4.98  0.43   8.58       69015.60  958.52
@@ -12,13 +49,64 @@ TV               10  39210.0         3626  5.13             8.29  0.90  10.81   
 Social           10  26750.0         2202  3.15            10.47  1.27  12.15      199963.62  647.53
 In-Store         10  21540.0         1345  1.80            18.14  2.91  16.01      122139.45  467.04
 
-Canal le plus rentable : Email (ROI 959 %)
-Canal le moins rentable : In-Store (ROI 467 %)
+Budget total investi : 110 190
+Revenu total estimé  : 874 500
+ROI global           : 694 %
 
-Top 5 des campagnes par ROI :
+Note de méthode : les KPIs par canal sont recalculés sur les totaux du canal, et non en
+moyennant les KPIs de chaque campagne. Une moyenne de ratios donnerait le même poids à
+une petite et à une grosse campagne.
+
+------------------------------------------------------------------------------
+3. CONCLUSIONS A REPRENDRE DANS LE RAPPORT
+------------------------------------------------------------------------------
+
+1. Email est le canal le plus rentable (ROI 959 %), avec le
+   CPA le plus bas (8.58). Il reçoit pourtant le plus petit budget
+   (6 520). C'est le principal levier d'optimisation du budget.
+
+2. In-Store est le canal le moins rentable (ROI 467 %) alors qu'il affiche
+   le meilleur taux de conversion (18.14 %). Explication : son CTR est le plus
+   faible (1.80 %), donc il faut beaucoup d'impressions pour obtenir un clic,
+   ce qui fait monter le CPC (2.91) puis le CPA (16.01).
+
+3. Le canal qui attire le clic n'est pas celui qui convertit. Les canaux à fort CTR
+   (Email en tête) convertissent peu, et inversement. Un seul indicateur ne suffit
+   donc pas à juger un canal : c'est le CPA, puis le ROI, qui tranchent.
+
+4. TV concentre le plus gros budget (39 210, soit 36 % du total) pour un
+   ROI de 740 %, inférieur à Email et Online. Une partie de ce budget serait
+   plus rentable sur les canaux à faible CPA.
+
+------------------------------------------------------------------------------
+4. TOP 5 DES CAMPAGNES PAR ROI
+------------------------------------------------------------------------------
+
  Campaign_ID Channel  Budget  Conversions  CPA     ROI
           26   Email   600.0          130 4.62 1867.55
           17      TV  4780.0          796 6.01 1412.23
           40   Email   520.0           84 6.19 1366.93
           49   Email   520.0           81 6.42 1314.54
           35   Email   990.0          154 6.43 1312.60
+
+------------------------------------------------------------------------------
+5. GRAPHIQUES DISPONIBLES (dossier figures/)
+------------------------------------------------------------------------------
+
+  m5_01_roi_par_canal.png      ROI estimé par canal
+  m5_02_ctr_conversion.png     CTR et taux de conversion par canal
+  m5_03_couts_par_canal.png    CPC et CPA par canal
+  m5_04_budget_revenu.png      budget investi et revenu estimé par canal
+  m5_05_budget_conversions.png dispersion budget / conversions des campagnes
+
+------------------------------------------------------------------------------
+6. LIVRABLES ET SUITE
+------------------------------------------------------------------------------
+
+  data/results/kpis_campagnes.csv  -> pour le dashboard de Toky
+  figures/m5_*.png                 -> pour le rapport et les slides
+
+Les chiffres du tableau de la section 2 sont ceux dont Lalatiana a besoin pour la
+répartition du budget (M7).
+
+A faire : rédiger la partie M5 du rapport dans rapport/parties/ et préparer 2 à 4 slides.
