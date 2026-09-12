@@ -1,0 +1,806 @@
+Customer_ID,Segment_ID,Segment_Nom
+2001,0,Acheteurs ponctuels inactifs
+2002,0,Acheteurs ponctuels inactifs
+2003,1,Clients premium Outerwear
+2004,0,Acheteurs ponctuels inactifs
+2005,-1,Clients sans achat
+2006,1,Clients premium Outerwear
+2007,-1,Clients sans achat
+2008,1,Clients premium Outerwear
+2009,0,Acheteurs ponctuels inactifs
+2010,1,Clients premium Outerwear
+2011,2,Jeunes acheteurs en ligne
+2012,0,Acheteurs ponctuels inactifs
+2013,1,Clients premium Outerwear
+2014,1,Clients premium Outerwear
+2015,-1,Clients sans achat
+2016,-1,Clients sans achat
+2017,0,Acheteurs ponctuels inactifs
+2018,3,Fidèles en magasin
+2019,0,Acheteurs ponctuels inactifs
+2020,2,Jeunes acheteurs en ligne
+2021,2,Jeunes acheteurs en ligne
+2022,1,Clients premium Outerwear
+2023,2,Jeunes acheteurs en ligne
+2024,3,Fidèles en magasin
+2025,-1,Clients sans achat
+2026,1,Clients premium Outerwear
+2027,2,Jeunes acheteurs en ligne
+2028,1,Clients premium Outerwear
+2029,2,Jeunes acheteurs en ligne
+2030,0,Acheteurs ponctuels inactifs
+2031,0,Acheteurs ponctuels inactifs
+2032,1,Clients premium Outerwear
+2033,3,Fidèles en magasin
+2034,0,Acheteurs ponctuels inactifs
+2035,-1,Clients sans achat
+2036,2,Jeunes acheteurs en ligne
+2037,3,Fidèles en magasin
+2038,0,Acheteurs ponctuels inactifs
+2039,-1,Clients sans achat
+2040,1,Clients premium Outerwear
+2041,2,Jeunes acheteurs en ligne
+2042,2,Jeunes acheteurs en ligne
+2043,0,Acheteurs ponctuels inactifs
+2044,2,Jeunes acheteurs en ligne
+2045,1,Clients premium Outerwear
+2046,1,Clients premium Outerwear
+2047,1,Clients premium Outerwear
+2048,-1,Clients sans achat
+2049,2,Jeunes acheteurs en ligne
+2050,3,Fidèles en magasin
+2051,1,Clients premium Outerwear
+2052,2,Jeunes acheteurs en ligne
+2053,-1,Clients sans achat
+2054,1,Clients premium Outerwear
+2055,0,Acheteurs ponctuels inactifs
+2056,-1,Clients sans achat
+2057,-1,Clients sans achat
+2058,3,Fidèles en magasin
+2059,1,Clients premium Outerwear
+2060,-1,Clients sans achat
+2061,1,Clients premium Outerwear
+2062,0,Acheteurs ponctuels inactifs
+2063,-1,Clients sans achat
+2064,1,Clients premium Outerwear
+2065,0,Acheteurs ponctuels inactifs
+2066,0,Acheteurs ponctuels inactifs
+2067,0,Acheteurs ponctuels inactifs
+2068,1,Clients premium Outerwear
+2069,2,Jeunes acheteurs en ligne
+2070,2,Jeunes acheteurs en ligne
+2071,1,Clients premium Outerwear
+2072,2,Jeunes acheteurs en ligne
+2073,3,Fidèles en magasin
+2074,2,Jeunes acheteurs en ligne
+2075,1,Clients premium Outerwear
+2076,0,Acheteurs ponctuels inactifs
+2077,1,Clients premium Outerwear
+2078,0,Acheteurs ponctuels inactifs
+2079,1,Clients premium Outerwear
+2080,2,Jeunes acheteurs en ligne
+2081,0,Acheteurs ponctuels inactifs
+2082,2,Jeunes acheteurs en ligne
+2083,1,Clients premium Outerwear
+2084,1,Clients premium Outerwear
+2085,2,Jeunes acheteurs en ligne
+2086,3,Fidèles en magasin
+2087,-1,Clients sans achat
+2088,2,Jeunes acheteurs en ligne
+2089,1,Clients premium Outerwear
+2090,3,Fidèles en magasin
+2091,1,Clients premium Outerwear
+2092,3,Fidèles en magasin
+2093,2,Jeunes acheteurs en ligne
+2094,0,Acheteurs ponctuels inactifs
+2095,0,Acheteurs ponctuels inactifs
+2096,0,Acheteurs ponctuels inactifs
+2097,3,Fidèles en magasin
+2098,1,Clients premium Outerwear
+2099,3,Fidèles en magasin
+2100,1,Clients premium Outerwear
+2101,1,Clients premium Outerwear
+2102,2,Jeunes acheteurs en ligne
+2103,3,Fidèles en magasin
+2104,1,Clients premium Outerwear
+2105,2,Jeunes acheteurs en ligne
+2106,3,Fidèles en magasin
+2107,0,Acheteurs ponctuels inactifs
+2108,2,Jeunes acheteurs en ligne
+2109,2,Jeunes acheteurs en ligne
+2110,3,Fidèles en magasin
+2111,1,Clients premium Outerwear
+2112,3,Fidèles en magasin
+2113,3,Fidèles en magasin
+2114,0,Acheteurs ponctuels inactifs
+2115,2,Jeunes acheteurs en ligne
+2116,-1,Clients sans achat
+2117,3,Fidèles en magasin
+2118,0,Acheteurs ponctuels inactifs
+2119,-1,Clients sans achat
+2120,3,Fidèles en magasin
+2121,1,Clients premium Outerwear
+2122,2,Jeunes acheteurs en ligne
+2123,1,Clients premium Outerwear
+2124,3,Fidèles en magasin
+2125,0,Acheteurs ponctuels inactifs
+2126,3,Fidèles en magasin
+2127,3,Fidèles en magasin
+2128,2,Jeunes acheteurs en ligne
+2129,3,Fidèles en magasin
+2130,0,Acheteurs ponctuels inactifs
+2131,3,Fidèles en magasin
+2132,3,Fidèles en magasin
+2133,1,Clients premium Outerwear
+2134,0,Acheteurs ponctuels inactifs
+2135,0,Acheteurs ponctuels inactifs
+2136,-1,Clients sans achat
+2137,1,Clients premium Outerwear
+2138,3,Fidèles en magasin
+2139,0,Acheteurs ponctuels inactifs
+2140,0,Acheteurs ponctuels inactifs
+2141,1,Clients premium Outerwear
+2142,0,Acheteurs ponctuels inactifs
+2143,-1,Clients sans achat
+2144,-1,Clients sans achat
+2145,3,Fidèles en magasin
+2146,2,Jeunes acheteurs en ligne
+2147,2,Jeunes acheteurs en ligne
+2148,1,Clients premium Outerwear
+2149,0,Acheteurs ponctuels inactifs
+2150,0,Acheteurs ponctuels inactifs
+2151,1,Clients premium Outerwear
+2152,3,Fidèles en magasin
+2153,2,Jeunes acheteurs en ligne
+2154,1,Clients premium Outerwear
+2155,2,Jeunes acheteurs en ligne
+2156,0,Acheteurs ponctuels inactifs
+2157,0,Acheteurs ponctuels inactifs
+2158,1,Clients premium Outerwear
+2159,0,Acheteurs ponctuels inactifs
+2160,1,Clients premium Outerwear
+2161,1,Clients premium Outerwear
+2162,1,Clients premium Outerwear
+2163,1,Clients premium Outerwear
+2164,1,Clients premium Outerwear
+2165,0,Acheteurs ponctuels inactifs
+2166,0,Acheteurs ponctuels inactifs
+2167,2,Jeunes acheteurs en ligne
+2168,1,Clients premium Outerwear
+2169,1,Clients premium Outerwear
+2170,3,Fidèles en magasin
+2171,2,Jeunes acheteurs en ligne
+2172,2,Jeunes acheteurs en ligne
+2173,1,Clients premium Outerwear
+2174,3,Fidèles en magasin
+2175,2,Jeunes acheteurs en ligne
+2176,1,Clients premium Outerwear
+2177,3,Fidèles en magasin
+2178,3,Fidèles en magasin
+2179,-1,Clients sans achat
+2180,2,Jeunes acheteurs en ligne
+2181,1,Clients premium Outerwear
+2182,3,Fidèles en magasin
+2183,3,Fidèles en magasin
+2184,3,Fidèles en magasin
+2185,1,Clients premium Outerwear
+2186,0,Acheteurs ponctuels inactifs
+2187,2,Jeunes acheteurs en ligne
+2188,1,Clients premium Outerwear
+2189,1,Clients premium Outerwear
+2190,-1,Clients sans achat
+2191,0,Acheteurs ponctuels inactifs
+2192,2,Jeunes acheteurs en ligne
+2193,3,Fidèles en magasin
+2194,3,Fidèles en magasin
+2195,1,Clients premium Outerwear
+2196,3,Fidèles en magasin
+2197,0,Acheteurs ponctuels inactifs
+2198,0,Acheteurs ponctuels inactifs
+2199,0,Acheteurs ponctuels inactifs
+2200,1,Clients premium Outerwear
+2201,1,Clients premium Outerwear
+2202,1,Clients premium Outerwear
+2203,2,Jeunes acheteurs en ligne
+2204,3,Fidèles en magasin
+2205,1,Clients premium Outerwear
+2206,2,Jeunes acheteurs en ligne
+2207,3,Fidèles en magasin
+2208,0,Acheteurs ponctuels inactifs
+2209,1,Clients premium Outerwear
+2210,0,Acheteurs ponctuels inactifs
+2211,-1,Clients sans achat
+2212,2,Jeunes acheteurs en ligne
+2213,3,Fidèles en magasin
+2214,3,Fidèles en magasin
+2215,3,Fidèles en magasin
+2216,0,Acheteurs ponctuels inactifs
+2217,1,Clients premium Outerwear
+2218,0,Acheteurs ponctuels inactifs
+2219,2,Jeunes acheteurs en ligne
+2220,3,Fidèles en magasin
+2221,0,Acheteurs ponctuels inactifs
+2222,1,Clients premium Outerwear
+2223,1,Clients premium Outerwear
+2224,2,Jeunes acheteurs en ligne
+2225,0,Acheteurs ponctuels inactifs
+2226,2,Jeunes acheteurs en ligne
+2227,0,Acheteurs ponctuels inactifs
+2228,3,Fidèles en magasin
+2229,0,Acheteurs ponctuels inactifs
+2230,1,Clients premium Outerwear
+2231,2,Jeunes acheteurs en ligne
+2232,3,Fidèles en magasin
+2233,2,Jeunes acheteurs en ligne
+2234,1,Clients premium Outerwear
+2235,3,Fidèles en magasin
+2236,2,Jeunes acheteurs en ligne
+2237,1,Clients premium Outerwear
+2238,0,Acheteurs ponctuels inactifs
+2239,1,Clients premium Outerwear
+2240,3,Fidèles en magasin
+2241,0,Acheteurs ponctuels inactifs
+2242,0,Acheteurs ponctuels inactifs
+2243,2,Jeunes acheteurs en ligne
+2244,1,Clients premium Outerwear
+2245,2,Jeunes acheteurs en ligne
+2246,3,Fidèles en magasin
+2247,3,Fidèles en magasin
+2248,1,Clients premium Outerwear
+2249,-1,Clients sans achat
+2250,0,Acheteurs ponctuels inactifs
+2251,1,Clients premium Outerwear
+2252,3,Fidèles en magasin
+2253,0,Acheteurs ponctuels inactifs
+2254,3,Fidèles en magasin
+2255,1,Clients premium Outerwear
+2256,0,Acheteurs ponctuels inactifs
+2257,2,Jeunes acheteurs en ligne
+2258,1,Clients premium Outerwear
+2259,-1,Clients sans achat
+2260,1,Clients premium Outerwear
+2261,0,Acheteurs ponctuels inactifs
+2262,1,Clients premium Outerwear
+2263,1,Clients premium Outerwear
+2264,0,Acheteurs ponctuels inactifs
+2265,1,Clients premium Outerwear
+2266,1,Clients premium Outerwear
+2267,3,Fidèles en magasin
+2268,2,Jeunes acheteurs en ligne
+2269,1,Clients premium Outerwear
+2270,3,Fidèles en magasin
+2271,2,Jeunes acheteurs en ligne
+2272,3,Fidèles en magasin
+2273,3,Fidèles en magasin
+2274,3,Fidèles en magasin
+2275,3,Fidèles en magasin
+2276,3,Fidèles en magasin
+2277,2,Jeunes acheteurs en ligne
+2278,1,Clients premium Outerwear
+2279,2,Jeunes acheteurs en ligne
+2280,0,Acheteurs ponctuels inactifs
+2281,-1,Clients sans achat
+2282,2,Jeunes acheteurs en ligne
+2283,3,Fidèles en magasin
+2284,1,Clients premium Outerwear
+2285,0,Acheteurs ponctuels inactifs
+2286,1,Clients premium Outerwear
+2287,2,Jeunes acheteurs en ligne
+2288,1,Clients premium Outerwear
+2289,3,Fidèles en magasin
+2290,-1,Clients sans achat
+2291,2,Jeunes acheteurs en ligne
+2292,2,Jeunes acheteurs en ligne
+2293,3,Fidèles en magasin
+2294,0,Acheteurs ponctuels inactifs
+2295,1,Clients premium Outerwear
+2296,3,Fidèles en magasin
+2297,2,Jeunes acheteurs en ligne
+2298,2,Jeunes acheteurs en ligne
+2299,0,Acheteurs ponctuels inactifs
+2300,1,Clients premium Outerwear
+2301,2,Jeunes acheteurs en ligne
+2302,-1,Clients sans achat
+2303,0,Acheteurs ponctuels inactifs
+2304,-1,Clients sans achat
+2305,3,Fidèles en magasin
+2306,1,Clients premium Outerwear
+2307,3,Fidèles en magasin
+2308,0,Acheteurs ponctuels inactifs
+2309,1,Clients premium Outerwear
+2310,0,Acheteurs ponctuels inactifs
+2311,0,Acheteurs ponctuels inactifs
+2312,0,Acheteurs ponctuels inactifs
+2313,0,Acheteurs ponctuels inactifs
+2314,3,Fidèles en magasin
+2315,0,Acheteurs ponctuels inactifs
+2316,2,Jeunes acheteurs en ligne
+2317,-1,Clients sans achat
+2318,1,Clients premium Outerwear
+2319,2,Jeunes acheteurs en ligne
+2320,3,Fidèles en magasin
+2321,2,Jeunes acheteurs en ligne
+2322,2,Jeunes acheteurs en ligne
+2323,-1,Clients sans achat
+2324,2,Jeunes acheteurs en ligne
+2325,2,Jeunes acheteurs en ligne
+2326,1,Clients premium Outerwear
+2327,0,Acheteurs ponctuels inactifs
+2328,1,Clients premium Outerwear
+2329,2,Jeunes acheteurs en ligne
+2330,0,Acheteurs ponctuels inactifs
+2331,1,Clients premium Outerwear
+2332,0,Acheteurs ponctuels inactifs
+2333,0,Acheteurs ponctuels inactifs
+2334,3,Fidèles en magasin
+2335,0,Acheteurs ponctuels inactifs
+2336,1,Clients premium Outerwear
+2337,2,Jeunes acheteurs en ligne
+2338,3,Fidèles en magasin
+2339,0,Acheteurs ponctuels inactifs
+2340,2,Jeunes acheteurs en ligne
+2341,1,Clients premium Outerwear
+2342,2,Jeunes acheteurs en ligne
+2343,0,Acheteurs ponctuels inactifs
+2344,3,Fidèles en magasin
+2345,3,Fidèles en magasin
+2346,2,Jeunes acheteurs en ligne
+2347,-1,Clients sans achat
+2348,3,Fidèles en magasin
+2349,1,Clients premium Outerwear
+2350,1,Clients premium Outerwear
+2351,1,Clients premium Outerwear
+2352,1,Clients premium Outerwear
+2353,0,Acheteurs ponctuels inactifs
+2354,-1,Clients sans achat
+2355,3,Fidèles en magasin
+2356,2,Jeunes acheteurs en ligne
+2357,2,Jeunes acheteurs en ligne
+2358,1,Clients premium Outerwear
+2359,1,Clients premium Outerwear
+2360,3,Fidèles en magasin
+2361,2,Jeunes acheteurs en ligne
+2362,2,Jeunes acheteurs en ligne
+2363,2,Jeunes acheteurs en ligne
+2364,0,Acheteurs ponctuels inactifs
+2365,2,Jeunes acheteurs en ligne
+2366,3,Fidèles en magasin
+2367,2,Jeunes acheteurs en ligne
+2368,2,Jeunes acheteurs en ligne
+2369,2,Jeunes acheteurs en ligne
+2370,2,Jeunes acheteurs en ligne
+2371,2,Jeunes acheteurs en ligne
+2372,-1,Clients sans achat
+2373,3,Fidèles en magasin
+2374,3,Fidèles en magasin
+2375,2,Jeunes acheteurs en ligne
+2376,3,Fidèles en magasin
+2377,1,Clients premium Outerwear
+2378,3,Fidèles en magasin
+2379,3,Fidèles en magasin
+2380,3,Fidèles en magasin
+2381,1,Clients premium Outerwear
+2382,3,Fidèles en magasin
+2383,-1,Clients sans achat
+2384,-1,Clients sans achat
+2385,0,Acheteurs ponctuels inactifs
+2386,0,Acheteurs ponctuels inactifs
+2387,0,Acheteurs ponctuels inactifs
+2388,1,Clients premium Outerwear
+2389,1,Clients premium Outerwear
+2390,0,Acheteurs ponctuels inactifs
+2391,1,Clients premium Outerwear
+2392,3,Fidèles en magasin
+2393,1,Clients premium Outerwear
+2394,0,Acheteurs ponctuels inactifs
+2395,1,Clients premium Outerwear
+2396,2,Jeunes acheteurs en ligne
+2397,2,Jeunes acheteurs en ligne
+2398,2,Jeunes acheteurs en ligne
+2399,2,Jeunes acheteurs en ligne
+2400,2,Jeunes acheteurs en ligne
+2401,1,Clients premium Outerwear
+2402,-1,Clients sans achat
+2403,1,Clients premium Outerwear
+2404,2,Jeunes acheteurs en ligne
+2405,-1,Clients sans achat
+2406,1,Clients premium Outerwear
+2407,2,Jeunes acheteurs en ligne
+2408,2,Jeunes acheteurs en ligne
+2409,1,Clients premium Outerwear
+2410,3,Fidèles en magasin
+2411,3,Fidèles en magasin
+2412,3,Fidèles en magasin
+2413,3,Fidèles en magasin
+2414,2,Jeunes acheteurs en ligne
+2415,2,Jeunes acheteurs en ligne
+2416,-1,Clients sans achat
+2417,1,Clients premium Outerwear
+2418,0,Acheteurs ponctuels inactifs
+2419,3,Fidèles en magasin
+2420,1,Clients premium Outerwear
+2421,2,Jeunes acheteurs en ligne
+2422,1,Clients premium Outerwear
+2423,-1,Clients sans achat
+2424,2,Jeunes acheteurs en ligne
+2425,-1,Clients sans achat
+2426,1,Clients premium Outerwear
+2427,2,Jeunes acheteurs en ligne
+2428,1,Clients premium Outerwear
+2429,2,Jeunes acheteurs en ligne
+2430,3,Fidèles en magasin
+2431,3,Fidèles en magasin
+2432,0,Acheteurs ponctuels inactifs
+2433,3,Fidèles en magasin
+2434,1,Clients premium Outerwear
+2435,-1,Clients sans achat
+2436,-1,Clients sans achat
+2437,1,Clients premium Outerwear
+2438,3,Fidèles en magasin
+2439,3,Fidèles en magasin
+2440,0,Acheteurs ponctuels inactifs
+2441,0,Acheteurs ponctuels inactifs
+2442,3,Fidèles en magasin
+2443,2,Jeunes acheteurs en ligne
+2444,0,Acheteurs ponctuels inactifs
+2445,-1,Clients sans achat
+2446,3,Fidèles en magasin
+2447,0,Acheteurs ponctuels inactifs
+2448,0,Acheteurs ponctuels inactifs
+2449,2,Jeunes acheteurs en ligne
+2450,0,Acheteurs ponctuels inactifs
+2451,1,Clients premium Outerwear
+2452,2,Jeunes acheteurs en ligne
+2453,3,Fidèles en magasin
+2454,-1,Clients sans achat
+2455,2,Jeunes acheteurs en ligne
+2456,-1,Clients sans achat
+2457,0,Acheteurs ponctuels inactifs
+2458,3,Fidèles en magasin
+2459,-1,Clients sans achat
+2460,3,Fidèles en magasin
+2461,1,Clients premium Outerwear
+2462,3,Fidèles en magasin
+2463,0,Acheteurs ponctuels inactifs
+2464,3,Fidèles en magasin
+2465,0,Acheteurs ponctuels inactifs
+2466,2,Jeunes acheteurs en ligne
+2467,0,Acheteurs ponctuels inactifs
+2468,0,Acheteurs ponctuels inactifs
+2469,3,Fidèles en magasin
+2470,2,Jeunes acheteurs en ligne
+2471,3,Fidèles en magasin
+2472,0,Acheteurs ponctuels inactifs
+2473,2,Jeunes acheteurs en ligne
+2474,3,Fidèles en magasin
+2475,1,Clients premium Outerwear
+2476,-1,Clients sans achat
+2477,1,Clients premium Outerwear
+2478,-1,Clients sans achat
+2479,-1,Clients sans achat
+2480,0,Acheteurs ponctuels inactifs
+2481,-1,Clients sans achat
+2482,3,Fidèles en magasin
+2483,2,Jeunes acheteurs en ligne
+2484,3,Fidèles en magasin
+2485,3,Fidèles en magasin
+2486,0,Acheteurs ponctuels inactifs
+2487,0,Acheteurs ponctuels inactifs
+2488,0,Acheteurs ponctuels inactifs
+2489,-1,Clients sans achat
+2490,-1,Clients sans achat
+2491,3,Fidèles en magasin
+2492,3,Fidèles en magasin
+2493,3,Fidèles en magasin
+2494,3,Fidèles en magasin
+2495,2,Jeunes acheteurs en ligne
+2496,2,Jeunes acheteurs en ligne
+2497,0,Acheteurs ponctuels inactifs
+2498,0,Acheteurs ponctuels inactifs
+2499,3,Fidèles en magasin
+2500,2,Jeunes acheteurs en ligne
+2501,1,Clients premium Outerwear
+2502,1,Clients premium Outerwear
+2503,3,Fidèles en magasin
+2504,3,Fidèles en magasin
+2505,0,Acheteurs ponctuels inactifs
+2506,2,Jeunes acheteurs en ligne
+2507,3,Fidèles en magasin
+2508,0,Acheteurs ponctuels inactifs
+2509,-1,Clients sans achat
+2510,0,Acheteurs ponctuels inactifs
+2511,0,Acheteurs ponctuels inactifs
+2512,-1,Clients sans achat
+2513,2,Jeunes acheteurs en ligne
+2514,0,Acheteurs ponctuels inactifs
+2515,2,Jeunes acheteurs en ligne
+2516,1,Clients premium Outerwear
+2517,1,Clients premium Outerwear
+2518,2,Jeunes acheteurs en ligne
+2519,3,Fidèles en magasin
+2520,-1,Clients sans achat
+2521,0,Acheteurs ponctuels inactifs
+2522,2,Jeunes acheteurs en ligne
+2523,1,Clients premium Outerwear
+2524,1,Clients premium Outerwear
+2525,0,Acheteurs ponctuels inactifs
+2526,1,Clients premium Outerwear
+2527,0,Acheteurs ponctuels inactifs
+2528,2,Jeunes acheteurs en ligne
+2529,2,Jeunes acheteurs en ligne
+2530,-1,Clients sans achat
+2531,1,Clients premium Outerwear
+2532,1,Clients premium Outerwear
+2533,0,Acheteurs ponctuels inactifs
+2534,2,Jeunes acheteurs en ligne
+2535,1,Clients premium Outerwear
+2536,3,Fidèles en magasin
+2537,3,Fidèles en magasin
+2538,2,Jeunes acheteurs en ligne
+2539,1,Clients premium Outerwear
+2540,0,Acheteurs ponctuels inactifs
+2541,2,Jeunes acheteurs en ligne
+2542,-1,Clients sans achat
+2543,1,Clients premium Outerwear
+2544,2,Jeunes acheteurs en ligne
+2545,1,Clients premium Outerwear
+2546,3,Fidèles en magasin
+2547,2,Jeunes acheteurs en ligne
+2548,2,Jeunes acheteurs en ligne
+2549,0,Acheteurs ponctuels inactifs
+2550,3,Fidèles en magasin
+2551,2,Jeunes acheteurs en ligne
+2552,1,Clients premium Outerwear
+2553,2,Jeunes acheteurs en ligne
+2554,1,Clients premium Outerwear
+2555,1,Clients premium Outerwear
+2556,-1,Clients sans achat
+2557,2,Jeunes acheteurs en ligne
+2558,3,Fidèles en magasin
+2559,2,Jeunes acheteurs en ligne
+2560,2,Jeunes acheteurs en ligne
+2561,2,Jeunes acheteurs en ligne
+2562,2,Jeunes acheteurs en ligne
+2563,-1,Clients sans achat
+2564,2,Jeunes acheteurs en ligne
+2565,-1,Clients sans achat
+2566,2,Jeunes acheteurs en ligne
+2567,2,Jeunes acheteurs en ligne
+2568,1,Clients premium Outerwear
+2569,-1,Clients sans achat
+2570,1,Clients premium Outerwear
+2571,3,Fidèles en magasin
+2572,1,Clients premium Outerwear
+2573,3,Fidèles en magasin
+2574,0,Acheteurs ponctuels inactifs
+2575,3,Fidèles en magasin
+2576,0,Acheteurs ponctuels inactifs
+2577,1,Clients premium Outerwear
+2578,0,Acheteurs ponctuels inactifs
+2579,3,Fidèles en magasin
+2580,0,Acheteurs ponctuels inactifs
+2581,2,Jeunes acheteurs en ligne
+2582,0,Acheteurs ponctuels inactifs
+2583,2,Jeunes acheteurs en ligne
+2584,3,Fidèles en magasin
+2585,0,Acheteurs ponctuels inactifs
+2586,2,Jeunes acheteurs en ligne
+2587,3,Fidèles en magasin
+2588,1,Clients premium Outerwear
+2589,1,Clients premium Outerwear
+2590,1,Clients premium Outerwear
+2591,1,Clients premium Outerwear
+2592,-1,Clients sans achat
+2593,3,Fidèles en magasin
+2594,0,Acheteurs ponctuels inactifs
+2595,1,Clients premium Outerwear
+2596,3,Fidèles en magasin
+2597,0,Acheteurs ponctuels inactifs
+2598,-1,Clients sans achat
+2599,-1,Clients sans achat
+2600,3,Fidèles en magasin
+2601,0,Acheteurs ponctuels inactifs
+2602,3,Fidèles en magasin
+2603,2,Jeunes acheteurs en ligne
+2604,2,Jeunes acheteurs en ligne
+2605,3,Fidèles en magasin
+2606,1,Clients premium Outerwear
+2607,2,Jeunes acheteurs en ligne
+2608,2,Jeunes acheteurs en ligne
+2609,0,Acheteurs ponctuels inactifs
+2610,0,Acheteurs ponctuels inactifs
+2611,1,Clients premium Outerwear
+2612,-1,Clients sans achat
+2613,1,Clients premium Outerwear
+2614,-1,Clients sans achat
+2615,2,Jeunes acheteurs en ligne
+2616,3,Fidèles en magasin
+2617,-1,Clients sans achat
+2618,2,Jeunes acheteurs en ligne
+2619,1,Clients premium Outerwear
+2620,2,Jeunes acheteurs en ligne
+2621,-1,Clients sans achat
+2622,1,Clients premium Outerwear
+2623,2,Jeunes acheteurs en ligne
+2624,0,Acheteurs ponctuels inactifs
+2625,2,Jeunes acheteurs en ligne
+2626,0,Acheteurs ponctuels inactifs
+2627,0,Acheteurs ponctuels inactifs
+2628,-1,Clients sans achat
+2629,0,Acheteurs ponctuels inactifs
+2630,3,Fidèles en magasin
+2631,1,Clients premium Outerwear
+2632,0,Acheteurs ponctuels inactifs
+2633,3,Fidèles en magasin
+2634,2,Jeunes acheteurs en ligne
+2635,3,Fidèles en magasin
+2636,3,Fidèles en magasin
+2637,2,Jeunes acheteurs en ligne
+2638,1,Clients premium Outerwear
+2639,0,Acheteurs ponctuels inactifs
+2640,-1,Clients sans achat
+2641,1,Clients premium Outerwear
+2642,3,Fidèles en magasin
+2643,0,Acheteurs ponctuels inactifs
+2644,2,Jeunes acheteurs en ligne
+2645,-1,Clients sans achat
+2646,3,Fidèles en magasin
+2647,3,Fidèles en magasin
+2648,0,Acheteurs ponctuels inactifs
+2649,1,Clients premium Outerwear
+2650,0,Acheteurs ponctuels inactifs
+2651,2,Jeunes acheteurs en ligne
+2652,2,Jeunes acheteurs en ligne
+2653,3,Fidèles en magasin
+2654,3,Fidèles en magasin
+2655,2,Jeunes acheteurs en ligne
+2656,2,Jeunes acheteurs en ligne
+2657,0,Acheteurs ponctuels inactifs
+2658,1,Clients premium Outerwear
+2659,1,Clients premium Outerwear
+2660,1,Clients premium Outerwear
+2661,0,Acheteurs ponctuels inactifs
+2662,2,Jeunes acheteurs en ligne
+2663,0,Acheteurs ponctuels inactifs
+2664,2,Jeunes acheteurs en ligne
+2665,0,Acheteurs ponctuels inactifs
+2666,1,Clients premium Outerwear
+2667,1,Clients premium Outerwear
+2668,3,Fidèles en magasin
+2669,1,Clients premium Outerwear
+2670,2,Jeunes acheteurs en ligne
+2671,3,Fidèles en magasin
+2672,3,Fidèles en magasin
+2673,2,Jeunes acheteurs en ligne
+2674,0,Acheteurs ponctuels inactifs
+2675,2,Jeunes acheteurs en ligne
+2676,1,Clients premium Outerwear
+2677,3,Fidèles en magasin
+2678,3,Fidèles en magasin
+2679,1,Clients premium Outerwear
+2680,0,Acheteurs ponctuels inactifs
+2681,3,Fidèles en magasin
+2682,2,Jeunes acheteurs en ligne
+2683,0,Acheteurs ponctuels inactifs
+2684,2,Jeunes acheteurs en ligne
+2685,0,Acheteurs ponctuels inactifs
+2686,0,Acheteurs ponctuels inactifs
+2687,3,Fidèles en magasin
+2688,1,Clients premium Outerwear
+2689,2,Jeunes acheteurs en ligne
+2690,0,Acheteurs ponctuels inactifs
+2691,-1,Clients sans achat
+2692,3,Fidèles en magasin
+2693,1,Clients premium Outerwear
+2694,1,Clients premium Outerwear
+2695,3,Fidèles en magasin
+2696,0,Acheteurs ponctuels inactifs
+2697,2,Jeunes acheteurs en ligne
+2698,3,Fidèles en magasin
+2699,3,Fidèles en magasin
+2700,3,Fidèles en magasin
+2701,-1,Clients sans achat
+2702,3,Fidèles en magasin
+2703,2,Jeunes acheteurs en ligne
+2704,0,Acheteurs ponctuels inactifs
+2705,3,Fidèles en magasin
+2706,2,Jeunes acheteurs en ligne
+2707,0,Acheteurs ponctuels inactifs
+2708,0,Acheteurs ponctuels inactifs
+2709,0,Acheteurs ponctuels inactifs
+2710,2,Jeunes acheteurs en ligne
+2711,-1,Clients sans achat
+2712,2,Jeunes acheteurs en ligne
+2713,2,Jeunes acheteurs en ligne
+2714,3,Fidèles en magasin
+2715,2,Jeunes acheteurs en ligne
+2716,2,Jeunes acheteurs en ligne
+2717,2,Jeunes acheteurs en ligne
+2718,0,Acheteurs ponctuels inactifs
+2719,-1,Clients sans achat
+2720,2,Jeunes acheteurs en ligne
+2721,2,Jeunes acheteurs en ligne
+2722,-1,Clients sans achat
+2723,1,Clients premium Outerwear
+2724,1,Clients premium Outerwear
+2725,2,Jeunes acheteurs en ligne
+2726,3,Fidèles en magasin
+2727,2,Jeunes acheteurs en ligne
+2728,2,Jeunes acheteurs en ligne
+2729,2,Jeunes acheteurs en ligne
+2730,2,Jeunes acheteurs en ligne
+2731,2,Jeunes acheteurs en ligne
+2732,2,Jeunes acheteurs en ligne
+2733,1,Clients premium Outerwear
+2734,3,Fidèles en magasin
+2735,2,Jeunes acheteurs en ligne
+2736,2,Jeunes acheteurs en ligne
+2737,2,Jeunes acheteurs en ligne
+2738,2,Jeunes acheteurs en ligne
+2739,2,Jeunes acheteurs en ligne
+2740,3,Fidèles en magasin
+2741,2,Jeunes acheteurs en ligne
+2742,3,Fidèles en magasin
+2743,3,Fidèles en magasin
+2744,2,Jeunes acheteurs en ligne
+2745,0,Acheteurs ponctuels inactifs
+2746,1,Clients premium Outerwear
+2747,3,Fidèles en magasin
+2748,0,Acheteurs ponctuels inactifs
+2749,1,Clients premium Outerwear
+2750,2,Jeunes acheteurs en ligne
+2751,2,Jeunes acheteurs en ligne
+2752,3,Fidèles en magasin
+2753,2,Jeunes acheteurs en ligne
+2754,0,Acheteurs ponctuels inactifs
+2755,1,Clients premium Outerwear
+2756,0,Acheteurs ponctuels inactifs
+2757,1,Clients premium Outerwear
+2758,0,Acheteurs ponctuels inactifs
+2759,0,Acheteurs ponctuels inactifs
+2760,1,Clients premium Outerwear
+2761,2,Jeunes acheteurs en ligne
+2762,0,Acheteurs ponctuels inactifs
+2763,1,Clients premium Outerwear
+2764,3,Fidèles en magasin
+2765,0,Acheteurs ponctuels inactifs
+2766,3,Fidèles en magasin
+2767,1,Clients premium Outerwear
+2768,1,Clients premium Outerwear
+2769,0,Acheteurs ponctuels inactifs
+2770,2,Jeunes acheteurs en ligne
+2771,1,Clients premium Outerwear
+2772,-1,Clients sans achat
+2773,3,Fidèles en magasin
+2774,0,Acheteurs ponctuels inactifs
+2775,3,Fidèles en magasin
+2776,0,Acheteurs ponctuels inactifs
+2777,3,Fidèles en magasin
+2778,3,Fidèles en magasin
+2779,3,Fidèles en magasin
+2780,1,Clients premium Outerwear
+2781,2,Jeunes acheteurs en ligne
+2782,3,Fidèles en magasin
+2783,2,Jeunes acheteurs en ligne
+2784,3,Fidèles en magasin
+2785,1,Clients premium Outerwear
+2786,2,Jeunes acheteurs en ligne
+2787,3,Fidèles en magasin
+2788,1,Clients premium Outerwear
+2789,2,Jeunes acheteurs en ligne
+2790,3,Fidèles en magasin
+2791,3,Fidèles en magasin
+2792,0,Acheteurs ponctuels inactifs
+2793,1,Clients premium Outerwear
+2794,2,Jeunes acheteurs en ligne
+2795,1,Clients premium Outerwear
+2796,3,Fidèles en magasin
+2797,1,Clients premium Outerwear
+2798,2,Jeunes acheteurs en ligne
+2799,-1,Clients sans achat
+2800,0,Acheteurs ponctuels inactifs
+2801,0,Acheteurs ponctuels inactifs
+2802,2,Jeunes acheteurs en ligne
+2803,-1,Clients sans achat
+2804,2,Jeunes acheteurs en ligne
+2805,0,Acheteurs ponctuels inactifs
