@@ -44,16 +44,55 @@ COL_PANIER_MOYEN = "Panier_Moyen"
 COL_RECENCE = "Recence_Jours"
 COL_CANAL_PREFERE = "Canal_Prefere"
 COL_PART_ONLINE = "Part_Online"
+COL_PART_CLOTHING = "Part_Clothing"
+COL_PART_FOOTWEAR = "Part_Footwear"
+COL_PART_OUTERWEAR = "Part_Outerwear"
+COL_PART_ACCESSORIES = "Part_Accessories"
+
+# Colonnes des fichiers de data/results/.
+COL_SEGMENT_ID = "Segment_ID"
+COL_SEGMENT_NOM = "Segment_Nom"
+COL_CAMPAGNE = "Campaign_ID"
+COL_DEBUT_CAMPAGNE = "Start_Date"
+COL_BUDGET = "Budget"
+COL_IMPRESSIONS = "Impressions"
+COL_CLICS = "Clicks"
+COL_CONVERSIONS = "Conversions"
+COL_CTR = "CTR"
+COL_TAUX_CONVERSION = "Taux_Conversion"
+COL_CPC = "CPC"
+COL_CPA = "CPA"
+COL_REVENU = "Revenu_Estime"
+COL_ROI = "ROI"
+COL_PROBA_CHURN = "Proba_Churn"
+COL_CLV = "CLV"
 
 # --- Ordres et modalités de référence ---------------------------------------
 CANAUX_VENTES: tuple[str, ...] = ("Online", "In-Store")
+CANAUX_CAMPAGNES: tuple[str, ...] = ("Online", "In-Store", "Social", "Email", "TV")
 CATEGORIES: tuple[str, ...] = ("Clothing", "Footwear", "Outerwear", "Accessories")
+
+# Colonne de part de dépense associée à chaque catégorie.
+PARTS_CATEGORIES: dict[str, str] = {
+    "Clothing": COL_PART_CLOTHING,
+    "Footwear": COL_PART_FOOTWEAR,
+    "Outerwear": COL_PART_OUTERWEAR,
+    "Accessories": COL_PART_ACCESSORIES,
+}
 
 # Libellés français des modalités pour l'affichage.
 LIBELLES_CANAUX: dict[str, str] = {"Online": "En ligne", "In-Store": "En magasin"}
 LIBELLES_GENRES: dict[str, str] = {"Female": "Femme", "Male": "Homme"}
 
 TOP_PRODUITS_DEFAUT: int = 10
+
+# Segmentation : identifiant réservé aux clients sans achat (hors comportement).
+SEGMENT_SANS_ACHAT: int = -1
+
+# Prédiction : seuil de probabilité de churn par défaut, et panier moyen de
+# référence servant à estimer le revenu des campagnes (cf. règles M2, §4.4).
+SEUIL_RISQUE_DEFAUT: float = 0.5
+PANIER_MOYEN_REFERENCE: float = 90.81
 
 # Colonnes affichées dans le tableau des clients (dans l'ordre) et leurs libellés.
 COLONNES_TABLEAU_CLIENTS: tuple[str, ...] = (

@@ -60,24 +60,33 @@ def _selection_multiple(
     return tuple(selection)
 
 
-def construire_filtres(ventes: pd.DataFrame) -> Filtres:
+def construire_filtres(ventes: pd.DataFrame, *, filtres_ventes: bool = True) -> Filtres:
     """Construit la barre latérale de filtres et renvoie la sélection.
 
     Args:
         ventes: ventes complètes, servant à déterminer bornes et modalités.
+        filtres_ventes: si True, affiche période/canal/catégorie (filtres au niveau
+            des ventes) ; sinon seuls ville et genre s'appliquent, avec une note.
 
     Returns:
-        Les filtres correspondant à la sélection courante.
+        Les filtres correspondant à la sélection courante ; les dimensions non
+        affichées valent « toutes » (période complète, tuples vides).
     """
     st.sidebar.divider()
     st.sidebar.markdown('<div class="sidebar-section">Filtres</div>', unsafe_allow_html=True)
     bornes = calculs.bornes_dates(ventes)
-    date_debut, date_fin = _selection_periode(bornes)
 
-    canaux = _selection_multiple(
-        "Canal", list(config.CANAUX_VENTES), "f_canaux", config.LIBELLES_CANAUX
-    )
-    categories = _selection_multiple("Catégorie", list(config.CATEGORIES), "f_categories")
+    if filtres_ventes:
+        date_debut, date_fin = _selection_periode(bornes)
+        canaux = _selection_multiple(
+            "Canal", list(config.CANAUX_VENTES), "f_canaux", config.LIBELLES_CANAUX
+        )
+        categories = _selection_multiple("Catégorie", list(config.CATEGORIES), "f_categories")
+    else:
+        date_debut, date_fin = bornes
+        canaux = ()
+        categories = ()
+
     villes = _selection_multiple("Ville", calculs.modalites(ventes, config.COL_VILLE), "f_villes")
     genres = _selection_multiple(
         "Genre",
@@ -85,6 +94,12 @@ def construire_filtres(ventes: pd.DataFrame) -> Filtres:
         "f_genres",
         config.LIBELLES_GENRES,
     )
+
+    if not filtres_ventes:
+        st.sidebar.caption(
+            "Les filtres période, canal et catégorie portent sur les ventes ; "
+            "ils ne s'appliquent pas à cette page centrée sur les clients."
+        )
 
     st.sidebar.button(
         "Réinitialiser les filtres",

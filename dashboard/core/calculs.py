@@ -195,3 +195,190 @@ def clients_de_selection(clients: pd.DataFrame, ventes_filtrees: pd.DataFrame) -
     """
     identifiants = ventes_filtrees[config.COL_CLIENT].unique()
     return clients[clients[config.COL_CLIENT].isin(identifiants)].copy()
+
+
+def filtrer_clients(clients: pd.DataFrame, filtres: Filtres) -> pd.DataFrame:
+    """Filtre les clients par ville et genre (filtres pertinents au niveau client)."""
+    resultat = clients
+    if filtres.villes:
+        resultat = resultat[resultat[config.COL_VILLE].isin(filtres.villes)]
+    if filtres.genres:
+        resultat = resultat[resultat[config.COL_GENRE].isin(filtres.genres)]
+    return resultat.copy()
+
+
+# --- Campagnes ---------------------------------------------------------------
+
+
+def kpis_campagnes_par_canal(kpis: pd.DataFrame) -> pd.DataFrame:
+    """Recalcule les indicateurs par canal à partir des totaux (pas de moyenne de ratios).
+
+    CTR = Σclics/Σimpressions, Taux_Conversion = Σconversions/Σclics,
+    CPC = Σbudget/Σclics, CPA = Σbudget/Σconversions,
+    ROI = (Σrevenu − Σbudget)/Σbudget. CTR, Taux_Conversion et ROI sont en %.
+    """
+    agrege = (
+        kpis.groupby(config.COL_CANAL)
+        .agg(
+            Campagnes=(config.COL_CAMPAGNE, "count"),
+            Budget=(config.COL_BUDGET, "sum"),
+            Impressions=(config.COL_IMPRESSIONS, "sum"),
+            Clics=(config.COL_CLICS, "sum"),
+            Conversions=(config.COL_CONVERSIONS, "sum"),
+            Revenu=(config.COL_REVENU, "sum"),
+        )
+        .reset_index()
+    )
+    agrege["CTR"] = agrege["Clics"] / agrege["Impressions"] * 100
+    agrege["Taux_Conversion"] = agrege["Conversions"] / agrege["Clics"] * 100
+    agrege["CPC"] = agrege["Budget"] / agrege["Clics"]
+    agrege["CPA"] = agrege["Budget"] / agrege["Conversions"]
+    agrege["ROI"] = (agrege["Revenu"] - agrege["Budget"]) / agrege["Budget"] * 100
+    return agrege
+
+
+def kpis_campagnes_global(kpis: pd.DataFrame) -> dict[str, float]:
+    """Indicateurs globaux recalculés à partir des totaux de toutes les campagnes."""
+    budget = float(kpis[config.COL_BUDGET].sum())
+    impressions = float(kpis[config.COL_IMPRESSIONS].sum())
+    clics = float(kpis[config.COL_CLICS].sum())
+    conversions = float(kpis[config.COL_CONVERSIONS].sum())
+    revenu = float(kpis[config.COL_REVENU].sum())
+    return {
+        "budget": budget,
+        "impressions": impressions,
+        "clics": clics,
+        "conversions": conversions,
+        "revenu": revenu,
+        "ctr": clics / impressions * 100 if impressions else 0.0,
+        "taux_conversion": conversions / clics * 100 if clics else 0.0,
+        "cpc": budget / clics if clics else 0.0,
+        "cpa": budget / conversions if conversions else 0.0,
+        "roi": (revenu - budget) / budget * 100 if budget else 0.0,
+    }
+
+
+# --- Segments ----------------------------------------------------------------
+
+
+def _fusion_segments(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Joint segments et clients (jointure interne : respecte le filtrage clients)."""
+    return segments.merge(clients, on=config.COL_CLIENT, how="inner")
+
+
+def profil_segments(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Profil moyen par segment ; comportement masqué pour le segment sans achat.
+
+    Les clients sans achat (Segment_ID = -1) restent comptés, mais leurs moyennes
+    de panier, récence et fréquence sont laissées vides (sans signification).
+    """
+    fusion = _fusion_segments(segments, clients)
+    profil = (
+        fusion.groupby([config.COL_SEGMENT_ID, config.COL_SEGMENT_NOM])
+        .agg(
+            Clients=(config.COL_CLIENT, "count"),
+            Age_moyen=(config.COL_AGE, "mean"),
+            Panier_moyen=(config.COL_PANIER_MOYEN, "mean"),
+            Montant_moyen=(config.COL_MONTANT_TOTAL, "mean"),
+            Recence_moyenne=(config.COL_RECENCE, "mean"),
+            Achats_moyens=(config.COL_NB_ACHATS, "mean"),
+        )
+        .reset_index()
+        .round(1)
+    )
+    masque_sans_achat = profil[config.COL_SEGMENT_ID] == config.SEGMENT_SANS_ACHAT
+    for colonne in ("Panier_moyen", "Recence_moyenne", "Achats_moyens"):
+        profil[colonne] = profil[colonne].astype("object")
+        profil.loc[masque_sans_achat, colonne] = None
+    return profil.sort_values(config.COL_SEGMENT_ID).drop(columns=config.COL_SEGMENT_ID)
+
+
+def nombre_segments_reels(segments: pd.DataFrame) -> int:
+    """Nombre de segments réels (hors pseudo-segment des clients sans achat)."""
+    reels = segments[segments[config.COL_SEGMENT_ID] != config.SEGMENT_SANS_ACHAT]
+    return int(reels[config.COL_SEGMENT_ID].nunique())
+
+
+def repartition_segments(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Nombre de clients par segment (tous segments, y compris sans achat)."""
+    fusion = _fusion_segments(segments, clients)
+    return (
+        fusion.groupby(config.COL_SEGMENT_NOM)[config.COL_CLIENT]
+        .count()
+        .reset_index(name="Clients")
+        .sort_values("Clients")
+    )
+
+
+def _segments_reels(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Fusion restreinte aux segments réels (dépense pertinente)."""
+    fusion = _fusion_segments(segments, clients)
+    return fusion[fusion[config.COL_SEGMENT_ID] != config.SEGMENT_SANS_ACHAT]
+
+
+def ca_par_segment(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Chiffre d'affaires (Montant_Total) par segment réel et part en %."""
+    reels = _segments_reels(segments, clients)
+    resultat = (
+        reels.groupby(config.COL_SEGMENT_NOM)[config.COL_MONTANT_TOTAL]
+        .sum()
+        .reset_index(name="CA")
+        .sort_values("CA")
+    )
+    total = resultat["CA"].sum()
+    resultat["Part"] = resultat["CA"] / total * 100 if total else 0.0
+    return resultat
+
+
+def composition_par_segment(segments: pd.DataFrame, clients: pd.DataFrame) -> pd.DataFrame:
+    """Composition moyenne des dépenses par catégorie et par segment réel (format long)."""
+    reels = _segments_reels(segments, clients)
+    colonnes = list(config.PARTS_CATEGORIES.values())
+    moyennes = reels.groupby(config.COL_SEGMENT_NOM)[colonnes].mean().reset_index()
+    long = moyennes.melt(id_vars=config.COL_SEGMENT_NOM, var_name="ColPart", value_name="Part")
+    inverse = {col: cat for cat, col in config.PARTS_CATEGORIES.items()}
+    long["Categorie"] = long["ColPart"].map(inverse)
+    return long.drop(columns="ColPart")
+
+
+# --- Prédictions -------------------------------------------------------------
+
+
+def predictions_avec_segment(
+    predictions: pd.DataFrame, segments: pd.DataFrame | None
+) -> pd.DataFrame:
+    """Ajoute le nom de segment aux prédictions (si la segmentation est disponible)."""
+    if segments is None:
+        resultat = predictions.copy()
+        resultat[config.COL_SEGMENT_NOM] = "Sans segment"
+        return resultat
+    return predictions.merge(
+        segments[[config.COL_CLIENT, config.COL_SEGMENT_NOM]],
+        on=config.COL_CLIENT,
+        how="left",
+    )
+
+
+def mesures_risque(predictions: pd.DataFrame, seuil: float) -> dict[str, float]:
+    """Mesures de churn au seuil donné (sur les seuls clients ayant une prédiction)."""
+    total = int(len(predictions))
+    a_risque = predictions[predictions[config.COL_PROBA_CHURN] >= seuil]
+    nb_risque = int(len(a_risque))
+    clv_risque = float(a_risque[config.COL_CLV].sum()) if config.COL_CLV in predictions else 0.0
+    return {
+        "total": total,
+        "nb_risque": nb_risque,
+        "part": nb_risque / total * 100 if total else 0.0,
+        "clv_risque": clv_risque,
+    }
+
+
+def risque_par_segment(predictions_segment: pd.DataFrame, seuil: float) -> pd.DataFrame:
+    """Par segment : nombre de clients à risque et somme de leur CLV, au seuil donné."""
+    a_risque = predictions_segment[predictions_segment[config.COL_PROBA_CHURN] >= seuil]
+    return (
+        a_risque.groupby(config.COL_SEGMENT_NOM)
+        .agg(Clients=(config.COL_CLIENT, "count"), CLV=(config.COL_CLV, "sum"))
+        .reset_index()
+        .sort_values("CLV")
+    )

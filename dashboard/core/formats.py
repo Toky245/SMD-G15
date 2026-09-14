@@ -22,6 +22,11 @@ def format_euro(valeur: float, decimales: int = 0) -> str:
     return f"{_grouper_milliers(valeur, decimales)}{_ESPACE_FINE}€"
 
 
+def format_nombre(valeur: float, decimales: int = 0) -> str:
+    """Retourne un nombre avec séparateur de milliers, sans unité (ex. 12 345)."""
+    return _grouper_milliers(valeur, decimales)
+
+
 def format_pourcentage(valeur: float, decimales: int = 1) -> str:
     """Retourne un pourcentage (ex. 12,3 %)."""
     return f"{_grouper_milliers(valeur, decimales)}{_ESPACE_FINE}%"

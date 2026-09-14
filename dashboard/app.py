@@ -28,6 +28,12 @@ _PAGES_DIR = config.DOSSIER_DASHBOARD / "pages"
 _LOGO = config.DOSSIER_DASHBOARD / "assets" / "logo.svg"
 
 
+# Pages appliquant les filtres au niveau des clients uniquement (ville, genre).
+_PAGES_CLIENT = ("segments", "predictions")
+# Page gérant ses propres filtres (période sur Start_Date, canal campagne).
+_PAGE_AUTONOME = ("campagnes",)
+
+
 def _construire_pages() -> list[st.Page]:
     """Déclare les pages de l'application avec leurs icônes Material."""
     return [
@@ -35,15 +41,29 @@ def _construire_pages() -> list[st.Page]:
             _PAGES_DIR / "vue_ensemble.py",
             title="Vue d'ensemble",
             icon=":material/dashboard:",
+            url_path="vue-ensemble",
             default=True,
         ),
-        st.Page(_PAGES_DIR / "clients.py", title="Clients", icon=":material/group:"),
-        st.Page(_PAGES_DIR / "segments.py", title="Segments", icon=":material/scatter_plot:"),
-        st.Page(_PAGES_DIR / "campagnes.py", title="Campagnes", icon=":material/campaign:"),
+        st.Page(
+            _PAGES_DIR / "clients.py", title="Clients", icon=":material/group:", url_path="clients"
+        ),
+        st.Page(
+            _PAGES_DIR / "segments.py",
+            title="Segments",
+            icon=":material/scatter_plot:",
+            url_path="segments",
+        ),
+        st.Page(
+            _PAGES_DIR / "campagnes.py",
+            title="Campagnes",
+            icon=":material/campaign:",
+            url_path="campagnes",
+        ),
         st.Page(
             _PAGES_DIR / "predictions.py",
             title="Prédictions",
             icon=":material/online_prediction:",
+            url_path="predictions",
         ),
     ]
 
@@ -61,8 +81,15 @@ def main() -> None:
     st.logo(str(_LOGO), size="large")
     page = st.navigation(_construire_pages(), position="sidebar")
 
-    # Les filtres sont construits sous le menu et partagés via session_state.
-    st.session_state["filtres"] = construire_filtres(charger_ventes())
+    # Filtres adaptés à la page : la page Campagnes gère les siens (Decision A),
+    # Segments/Prédictions n'appliquent que ville et genre (Decision B).
+    if page.url_path in _PAGE_AUTONOME:
+        st.session_state["filtres"] = None
+    else:
+        filtres_ventes = page.url_path not in _PAGES_CLIENT
+        st.session_state["filtres"] = construire_filtres(
+            charger_ventes(), filtres_ventes=filtres_ventes
+        )
 
     page.run()
 

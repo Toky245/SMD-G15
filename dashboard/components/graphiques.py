@@ -13,6 +13,7 @@ import streamlit as st
 
 from core.theme import (
     COULEUR_BORDURE,
+    COULEUR_DANGER,
     COULEUR_PRIMAIRE,
     COULEUR_TEXTE_SECONDAIRE,
     PALETTE_CATEGORIELLE,
@@ -190,17 +191,140 @@ def graphique_barres_horizontales(
 
 
 def histogramme(
-    donnees: pd.DataFrame, colonne: str, titre_x: str, nbins: int | None = None
+    donnees: pd.DataFrame,
+    colonne: str,
+    titre_x: str,
+    nbins: int | None = None,
+    ligne_seuil: float | None = None,
 ) -> go.Figure:
-    """Histogramme d'une variable numérique (couleur principale)."""
+    """Histogramme d'une variable numérique, avec une ligne de seuil optionnelle."""
     fig = px.histogram(donnees, x=colonne, nbins=nbins)
     fig.update_traces(
         marker={"color": COULEUR_PRIMAIRE, "line": {"color": "#FFFFFF", "width": 1}},
         hovertemplate=titre_x + " %{x}<br>%{y} clients<extra></extra>",
     )
+    if ligne_seuil is not None:
+        fig.add_vline(
+            x=ligne_seuil,
+            line={"color": COULEUR_DANGER, "width": 2, "dash": "dash"},
+            annotation_text=f"Seuil {ligne_seuil:.2f}",
+            annotation_position="top",
+            annotation_font={"color": COULEUR_DANGER, "size": 11},
+        )
     fig.update_xaxes(title_text=titre_x)
     fig.update_yaxes(title_text="Nombre de clients")
     return _finaliser(fig)
+
+
+def barres_valeur(
+    donnees: pd.DataFrame,
+    categorie: str,
+    valeur: str,
+    *,
+    orientation: str = "v",
+    suffixe: str = "",
+    couleur: str = COULEUR_PRIMAIRE,
+    decimales: int = 0,
+    hauteur: int = _HAUTEUR_DEFAUT,
+) -> go.Figure:
+    """Barres à série unique avec étiquettes, suffixe libre (%, sans devise…)."""
+    suffixe_txt = f" {suffixe}" if suffixe else ""
+    valeur_fmt = f"%{{{'x' if orientation == 'h' else 'y'}}}:,.{decimales}f}}"
+    axe_valeur = "x" if orientation == "h" else "y"
+    axe_categorie = "y" if orientation == "h" else "x"
+    maxi = float(donnees[valeur].max() or 0) * 1.2
+    fig = px.bar(
+        donnees,
+        x=valeur if orientation == "h" else categorie,
+        y=categorie if orientation == "h" else valeur,
+        orientation=orientation,
+        text=valeur,
+    )
+    fig.update_traces(
+        marker={"color": couleur, "cornerradius": 8},
+        texttemplate=valeur_fmt + suffixe_txt,
+        textposition="outside",
+        textfont=_ETIQUETTE,
+        cliponaxis=False,
+        hovertemplate=f"%{{{axe_categorie}}} · " + valeur_fmt + suffixe_txt + "<extra></extra>",
+    )
+    fig.update_layout(**{f"{axe_valeur}axis": {"range": [0, maxi], "showticklabels": False}})
+    if orientation == "h":
+        fig.update_layout(margin={"r": 76})
+    else:
+        fig.update_layout(margin={"t": 26})
+    fig.update_xaxes(title_text="")
+    fig.update_yaxes(title_text="")
+    return _finaliser(fig, hauteur)
+
+
+def barres_groupees(
+    donnees: pd.DataFrame,
+    categorie: str,
+    series: list[tuple[str, str, str]],
+    *,
+    hauteur: int = _HAUTEUR_DEFAUT,
+) -> go.Figure:
+    """Barres groupées : chaque série = (libellé, colonne, couleur)."""
+    fig = go.Figure()
+    for libelle, colonne, couleur in series:
+        fig.add_trace(
+            go.Bar(
+                x=donnees[categorie],
+                y=donnees[colonne],
+                name=libelle,
+                marker={"color": couleur, "cornerradius": 6},
+                hovertemplate="%{x} · " + libelle + " %{y:,.0f}<extra></extra>",
+            )
+        )
+    fig.update_layout(
+        barmode="group", height=hauteur, showlegend=True, bargap=0.3, bargroupgap=0.12
+    )
+    fig.update_xaxes(title_text="")
+    fig.update_yaxes(title_text="")
+    return fig
+
+
+def barres_empilees(
+    donnees_long: pd.DataFrame, categorie: str, valeur: str, couleur: str
+) -> go.Figure:
+    """Barres empilées (composition en %) par catégorie, colorées par modalité."""
+    fig = px.bar(
+        donnees_long,
+        x=categorie,
+        y=valeur,
+        color=couleur,
+        color_discrete_sequence=list(PALETTE_CATEGORIELLE),
+    )
+    fig.update_traces(hovertemplate="%{x} · %{fullData.name} : %{y:.1f} %<extra></extra>")
+    fig.update_layout(barmode="stack", height=_HAUTEUR_DEFAUT, showlegend=True)
+    fig.update_xaxes(title_text="")
+    fig.update_yaxes(title_text="", ticksuffix=" %")
+    return fig
+
+
+def nuage(
+    donnees: pd.DataFrame,
+    colonne_x: str,
+    colonne_y: str,
+    couleur: str,
+    titre_x: str,
+    titre_y: str,
+    hauteur: int = 380,
+) -> go.Figure:
+    """Nuage de points coloré par une modalité (ex. segment)."""
+    fig = px.scatter(
+        donnees,
+        x=colonne_x,
+        y=colonne_y,
+        color=couleur,
+        color_discrete_sequence=list(PALETTE_CATEGORIELLE),
+    )
+    fig.update_traces(marker={"size": 7, "opacity": 0.7, "line": {"width": 0}})
+    fig.update_xaxes(title_text=titre_x)
+    fig.update_yaxes(title_text=titre_y)
+    fig.update_layout(height=hauteur, showlegend=True)
+    return fig
 
 
 def boite_par_categorie(
